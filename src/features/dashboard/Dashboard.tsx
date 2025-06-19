@@ -25,6 +25,7 @@ import SecurityIcon from '@mui/icons-material/Security';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
+import ChatIcon from '@mui/icons-material/Chat';
 
 import { RootState } from '../../store';
 import AttendanceChart from './widgets/AttendanceChart';
@@ -32,6 +33,7 @@ import SecurityIncidentsWidget from './widgets/SecurityIncidentsWidget';
 import ParkingStatusWidget from './widgets/ParkingStatusWidget';
 import ConcessionsSalesWidget from './widgets/ConcessionsSalesWidget';
 import KeyEventsWidget from './widgets/KeyEventsWidget';
+import CommunicationPreviewWidget from './widgets/CommunicationPreviewWidget';
 
 const Dashboard: React.FC = () => {
   // Example data from Redux store
@@ -251,8 +253,25 @@ const Dashboard: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Card>
+            <CardHeader 
+              title="Communication Hub" 
+              action={
+                <IconButton aria-label="settings">
+                  <MoreVertIcon />
+                </IconButton>
+              }
+            />
+            <Divider />
+            <CardContent sx={{ height: 300 }}>
+              <CommunicationPreviewWidget />
+            </CardContent>
+          </Card>
+        </Grid>
         
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
           <Card>
             <CardHeader 
               title="Concessions Sales by Location" 
@@ -263,7 +282,7 @@ const Dashboard: React.FC = () => {
               }
             />
             <Divider />
-            <CardContent sx={{ height: 400 }}>
+            <CardContent sx={{ height: 300 }}>
               <ConcessionsSalesWidget />
             </CardContent>
           </Card>
